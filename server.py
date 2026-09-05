@@ -3,8 +3,11 @@ import base64
 
 from mcp.server.fastmcp import FastMCP, Image
 from openai import OpenAI
-
-mcp = FastMCP("OpenAI Image Generator")
+mcp = FastMCP(
+    "OpenAI Image Generator",
+    host="0.0.0.0",
+    port=int(os.environ.get("PORT", "8000")),
+)
 
 
 @mcp.tool()
